@@ -10,7 +10,7 @@ class CinemaController extends Controller
     // Halaman daftar bioskop publik (Home / Welcome)
     public function index()
     {
-        $cinemas = Cinema::where('is_active', true)->get();
+        $cinemas = Cinema::where('is_active', true)->paginate(4);
         // Tampilkan ke welcome.blade.php
         return view('welcome', compact('cinemas'));
     }

@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }).addTo(map);
     };
 
-    // 🚩 Auto: Arahkan ke bioskop pertama (terdekat)
+    
     if (cinemas.length > 0) {
         getDirections(cinemas[0].lat, cinemas[0].lng);
     }

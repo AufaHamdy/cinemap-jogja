@@ -9,7 +9,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Leaflet untuk Peta -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    //<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -159,37 +159,70 @@
             // Sample cinema data
             var cinemas = [
                 {
-                    name: "Ambarrukmo XXI",
-                    address: "Jl. Majapahit 102, 106 Yogyakarta 55101",
-                    lat: -7.782889,
-                    lng: 110.367083,
-                    hours: "10:00 - 24:00",
-                    phone: "(0274) 1234567"
-                },
-                {
-                    name: "Cinema 21",
-                    address: "Jl. Urip dan soto Jethandung Induk",
-                    lat: -7.797068,
-                    lng: 110.370529,
-                    hours: "10:00 - 22:00",
-                    phone: "(0274) 1234568"
-                },
-                {
-                    name: "Empire XXI",
-                    address: "Maluk Gudha No. 46, Yogyakarta 83516",
-                    lat: -7.801389,
-                    lng: 110.364583,
-                    hours: "09:00 - 23:00",
-                    phone: "(0274) 1234569"
-                },
-                {
-                    name: "XXX XXI",
-                    address: "Jatuhkarso Handana No. 2025, Yogyakarta",
-                    lat: -7.785068,
-                    lng: 110.375529,
-                    hours: "10:00 - 24:00",
-                    phone: "(0274) 1234570"
-                }
+                name: "Ambarrukmo XXI",
+                address: "Jl. Majapahit 102, 106 Yogyakarta 55101",
+                lat: -7.782013432770412,
+                lng: 110.40133975027359,
+                hours: "10:00 - 24:00",
+                phone: "(0274) 1234567"
+            },
+            {
+                name: "Empire XXI",
+                address: "Maluk Gudha No. 46, Yogyakarta 83516",
+                lat: -7.7830871723306, 
+                lng: 110.38678670044186,
+                hours: "09:00 - 23:00",
+                phone: "(0274) 1234569"
+            },
+           
+            {
+                name: "Jogja City XXI",
+                address: "Jogja City Mall Lt. 2, Jl. Magelang KM 6 No. 18, Sleman, Yogyakarta",
+                lat: -7.753102484874826, 
+                lng: 110.36148403172429,
+                hours: "10:00 - 22:00",
+                phone: "(0274) 5306777"
+            },
+            {
+                name: "Sleman City Hall XXI",
+                address: "Sleman City Hall Lt. 2, Jalan Gito Gati, Denggung, Sleman, Yogyakarta",
+                lat: -7.72026914075336, 
+                lng: 110.36290667530292,
+                hours: "10:00 - 22:00",
+                phone: "(0274) 2920005"
+            },
+            {
+                name: "Cinepolis Lippo Plaza Jogja",
+                address: "Lippo Plaza Jogja Lt. 1 & 4, Jl. Adisucipto No. 32-34, Gondokusuman, Yogyakarta",
+                lat: -7.783968112622859, 
+                lng: 110.39082284020651,
+                hours: "10:00 - 22:00",
+                phone: "(0274) 4469999"
+            },
+            {
+                name: "CGV Pakuwon Mall Jogja",
+                address: "Pakuwon Mall Lt. 2, Ring Road Utara, Condongcatur, Sleman, Yogyakarta",
+                lat: -7.758649933005197, 
+                lng: 110.39930608253472,
+                hours: "10:00 - 22:00",
+                phone: "(0274) 2923089"
+            },
+            {
+                name: "CGV J-Walk",
+                address: "Sahid J-Walk Lt. 3, Jl. Babarsari No. 2, Caturtunggal, Sleman, Yogyakarta",
+                lat: -7.77927383989994, 
+                lng: 110.41359282486339,
+                hours: "10:00 - 22:00",
+                phone: "(0274) 2802285"
+            },
+            {
+                name: "CGV Transmart Maguwo",
+                address: "Transmart Maguwo, Jl. Raya Solo KM 8 No. 234, Maguwoharjo, Sleman, Yogyakarta",
+                lat: -7.782565942064574, 
+                lng: 110.4201279690423,
+                hours: "10:00 - 22:00",
+                phone: "(0274) 2924000"
+            }
             ];
 
             // Add markers for each cinema
@@ -212,20 +245,7 @@
                 marker.bindPopup(popupContent);
             });
 
-            // // Add routing control (example route)
-            // var routingControl = L.Routing.control({
-            //     waypoints: [
-            //         L.latLng(-7.797068, 110.370529), // Start point
-            //         L.latLng(-7.782889, 110.367083)  // End point (Ambarrukmo XXI)
-            //     ],
-            //     routeWhileDragging: true,
-            //     createMarker: function() { return null; }, // Don't create default markers
-            //     lineOptions: {
-            //         styles: [{ color: '#3b82f6', weight: 4, opacity: 0.8 }]
-            //     }
-            // }).addTo(map);
-
-            // Store routing control globally for direction function
+           
             window.currentRouting = null;
             window.mapInstance = map;
         });

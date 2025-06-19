@@ -167,7 +167,7 @@
                     <h2 class="text-4xl font-bold text-gray-800 mb-2">Daftar Bioskop</h2>
                     <p class="text-gray-600"> Pilihan bioskop terbaik di Yogyakarta</p>
                 </div>
-                <button onclick="findNearby()" class="bg-green-600 text-white px-4 py-2 rounded-lg mb-4 hover:bg-green-700">
+                <button onclick="findNearby()" class="bg-blue-600 text-white px-4 py-2 rounded-lg mb-4 hover:bg-blue-700">
                     Cari Bioskop Terdekat
                 </button>
                 @if (isset($lat) && isset($lng))
@@ -220,13 +220,23 @@
             <!-- Pagination -->
             <div class="flex justify-center mt-12">
                 <div class="flex space-x-2">
-                    <button class="w-10 h-10 bg-blue-600 text-white rounded-lg font-semibold">1</button>
-                    <button class="w-10 h-10 bg-gray-200 text-gray-700 rounded-lg font-semibold hover:bg-gray-300 transition-colors">2</button>
-                    <button class="w-10 h-10 bg-gray-200 text-gray-700 rounded-lg font-semibold hover:bg-gray-300 transition-colors">3</button>
-                    <button class="w-10 h-10 bg-gray-200 text-gray-700 rounded-lg font-semibold hover:bg-gray-300 transition-colors">></button>
+                    @for ($i = 1; $i <= $cinemas->lastPage(); $i++)
+                        <a href="{{ $cinemas->url($i) }}"
+                        class="w-10 h-10 flex items-center justify-center rounded-lg font-semibold
+                            {{ $cinemas->currentPage() == $i ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300 transition-colors' }}">
+                            {{ $i }}
+                        </a>
+                    @endfor
+
+                    {{-- Tombol Next --}}
+                    @if ($cinemas->hasMorePages())
+                        <a href="{{ $cinemas->nextPageUrl() }}"
+                        class="w-10 h-10 flex items-center justify-center rounded-lg font-semibold bg-gray-200 text-gray-700 hover:bg-gray-300 transition-colors">
+                            &gt;
+                        </a>
+                    @endif
                 </div>
             </div>
-        </div>
     </section>
 
     <!-- About Section -->
@@ -478,34 +488,67 @@
             {
                 name: "Ambarrukmo XXI",
                 address: "Jl. Majapahit 102, 106 Yogyakarta 55101",
-                lat: -7.782889,
-                lng: 110.367083,
+                lat: -7.782013432770412,
+                lng: 110.40133975027359,
                 hours: "10:00 - 24:00",
                 phone: "(0274) 1234567"
             },
             {
-                name: "Cinema 21",
-                address: "Jl. Urip dan soto Jethandung Induk",
-                lat: -7.797068,
-                lng: 110.370529,
-                hours: "10:00 - 22:00",
-                phone: "(0274) 1234568"
-            },
-            {
                 name: "Empire XXI",
                 address: "Maluk Gudha No. 46, Yogyakarta 83516",
-                lat: -7.801389,
-                lng: 110.364583,
+                lat: -7.7830871723306, 
+                lng: 110.38678670044186,
                 hours: "09:00 - 23:00",
                 phone: "(0274) 1234569"
             },
+           
             {
-                name: "XXX XXI",
-                address: "Jatuhkarso Handana No. 2025, Yogyakarta",
-                lat: -7.785068,
-                lng: 110.375529,
-                hours: "10:00 - 24:00",
-                phone: "(0274) 1234570"
+                name: "Jogja City XXI",
+                address: "Jogja City Mall Lt. 2, Jl. Magelang KM 6 No. 18, Sleman, Yogyakarta",
+                lat: -7.753102484874826, 
+                lng: 110.36148403172429,
+                hours: "10:00 - 22:00",
+                phone: "(0274) 5306777"
+            },
+            {
+                name: "Sleman City Hall XXI",
+                address: "Sleman City Hall Lt. 2, Jalan Gito Gati, Denggung, Sleman, Yogyakarta",
+                lat: -7.72026914075336, 
+                lng: 110.36290667530292,
+                hours: "10:00 - 22:00",
+                phone: "(0274) 2920005"
+            },
+            {
+                name: "Cinepolis Lippo Plaza Jogja",
+                address: "Lippo Plaza Jogja Lt. 1 & 4, Jl. Adisucipto No. 32-34, Gondokusuman, Yogyakarta",
+                lat: -7.783968112622859, 
+                lng: 110.39082284020651,
+                hours: "10:00 - 22:00",
+                phone: "(0274) 4469999"
+            },
+            {
+                name: "CGV Pakuwon Mall Jogja",
+                address: "Pakuwon Mall Lt. 2, Ring Road Utara, Condongcatur, Sleman, Yogyakarta",
+                lat: -7.758649933005197, 
+                lng: 110.39930608253472,
+                hours: "10:00 - 22:00",
+                phone: "(0274) 2923089"
+            },
+            {
+                name: "CGV J-Walk",
+                address: "Sahid J-Walk Lt. 3, Jl. Babarsari No. 2, Caturtunggal, Sleman, Yogyakarta",
+                lat: -7.77927383989994, 
+                lng: 110.41359282486339,
+                hours: "10:00 - 22:00",
+                phone: "(0274) 2802285"
+            },
+            {
+                name: "CGV Transmart Maguwo",
+                address: "Transmart Maguwo, Jl. Raya Solo KM 8 No. 234, Maguwoharjo, Sleman, Yogyakarta",
+                lat: -7.782565942064574, 
+                lng: 110.4201279690423,
+                hours: "10:00 - 22:00",
+                phone: "(0274) 2924000"
             }
         ];
 
