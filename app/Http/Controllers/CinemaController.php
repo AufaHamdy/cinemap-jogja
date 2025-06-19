@@ -22,4 +22,30 @@ class CinemaController extends Controller
         // Tampilkan ke cinemas/show.blade.php
         return view('cinemas.show', compact('cinema'));
     }
+    public function nearby(Request $request)
+{
+    // Validasi input koordinat
+    $request->validate([
+        'lat' => 'required|numeric',
+        'lng' => 'required|numeric',
+    ]);
+
+    $lat = $request->lat;
+    $lng = $request->lng;
+
+    // Haversine formula (Earth radius = 6371 km)
+    $cinemas = Cinema::selectRaw("*,
+        (6371 * acos(
+            cos(radians(?)) *
+            cos(radians(latitude)) *
+            cos(radians(longitude) - radians(?)) +
+            sin(radians(?)) *
+            sin(radians(latitude))
+        )) AS distance", [$lat, $lng, $lat])
+        ->where('is_active', true)
+        ->orderBy('distance', 'asc')
+        ->get();
+
+    return view('cinemas.nearby', compact('cinemas', 'lat', 'lng'));
+}
 }

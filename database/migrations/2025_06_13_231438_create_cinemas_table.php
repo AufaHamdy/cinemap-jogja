@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('cinemas', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('image')->nullable(); // Kolom image ditambahkan di bawah name
             $table->string('address');
             $table->string('city')->default('Yogyakarta');
             $table->string('phone')->nullable();
@@ -31,9 +30,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::table('cinemas', function (Blueprint $table) {
-    $table->string('image')->nullable()->after('name');
-    });
+    
     }
 
     /**

@@ -165,8 +165,16 @@
             <div class="flex items-center justify-between mb-12">
                 <div>
                     <h2 class="text-4xl font-bold text-gray-800 mb-2">Daftar Bioskop</h2>
-                    <p class="text-gray-600">2 Pilihan bioskop terbaik di Yogyakarta</p>
+                    <p class="text-gray-600"> Pilihan bioskop terbaik di Yogyakarta</p>
                 </div>
+                <button onclick="findNearby()" class="bg-green-600 text-white px-4 py-2 rounded-lg mb-4 hover:bg-green-700">
+                    Cari Bioskop Terdekat
+                </button>
+                @if (isset($lat) && isset($lng))
+            <div class="mb-4 p-4 bg-green-100 text-green-800 rounded">
+                Menampilkan hasil berdasarkan lokasi Anda (Lat: {{ $lat }}, Lng: {{ $lng }}).
+            </div>
+        @endif
                 <div class="relative">
                     <input type="text" placeholder="Cari lokasi bioskop..." class="pl-12 pr-4 py-3 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 w-80">
                     <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
@@ -207,131 +215,7 @@
     @endforeach
 </div>
 
-            {{-- <div class="grid lg:grid-cols-2 gap-8">
-                <!-- Ambarrukmo XXI -->
-                <div class="cinema-card bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <div class="h-48 bg-gradient-to-br from-blue-500 to-purple-600 relative">
-                        <div class="absolute inset-0 bg-black opacity-20"></div>
-                        <div class="absolute bottom-4 left-4 text-white">
-                            <h3 class="text-2xl font-bold">Ambarrukmo XXI</h3>
-                            <p class="text-blue-100">Premium Cinema Experience</p>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="space-y-3 mb-6">
-                            <div class="flex items-center text-gray-600">
-                                <i class="fas fa-map-marker-alt w-5 text-blue-600"></i>
-                                <span class="ml-3">Jl. Majapahit 102, 106 Yogyakarta 55101</span>
-                            </div>
-                            <div class="flex items-center text-gray-600">
-                                <i class="fas fa-clock w-5 text-green-600"></i>
-                                <span class="ml-3">Buka setiap 10:00 - 24:00</span>
-                            </div>
-                            <div class="flex items-center text-gray-600">
-                                <i class="fas fa-star w-5 text-yellow-500"></i>
-                                <span class="ml-3">4.5 • 2 ulasan</span>
-                            </div>
-                        </div>
-                        <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-xl font-semibold transition-colors">
-                            <i class="fas fa-eye mr-2"></i>
-                            Lihat Detail
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Cinema 21 -->
-                <div class="cinema-card bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <div class="h-48 bg-gradient-to-br from-green-500 to-teal-600 relative">
-                        <div class="absolute inset-0 bg-black opacity-20"></div>
-                        <div class="absolute bottom-4 left-4 text-white">
-                            <h3 class="text-2xl font-bold">Cinema 21</h3>
-                            <p class="text-green-100">Your Favorite Cinema</p>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="space-y-3 mb-6">
-                            <div class="flex items-center text-gray-600">
-                                <i class="fas fa-map-marker-alt w-5 text-blue-600"></i>
-                                <span class="ml-3">Jl. Urip dan soto Jethandung Induk</span>
-                            </div>
-                            <div class="flex items-center text-gray-600">
-                                <i class="fas fa-clock w-5 text-green-600"></i>
-                                <span class="ml-3">Buka setiap 10:00 - 22:00</span>
-                            </div>
-                            <div class="flex items-center text-gray-600">
-                                <i class="fas fa-star w-5 text-yellow-500"></i>
-                                <span class="ml-3">4.3 • 5 ulasan</span>
-                            </div>
-                        </div>
-                        <button class="w-full bg-green-600 hover:bg-green-700 text-white py-4 rounded-xl font-semibold transition-colors">
-                            <i class="fas fa-eye mr-2"></i>
-                            Lihat Detail
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Empire XXI -->
-                <div class="cinema-card bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <div class="h-48 bg-gradient-to-br from-purple-500 to-pink-600 relative">
-                        <div class="absolute inset-0 bg-black opacity-20"></div>
-                        <div class="absolute bottom-4 left-4 text-white">
-                            <h3 class="text-2xl font-bold">Empire XXI</h3>
-                            <p class="text-purple-100">Luxury Entertainment</p>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="space-y-3 mb-6">
-                            <div class="flex items-center text-gray-600">
-                                <i class="fas fa-map-marker-alt w-5 text-blue-600"></i>
-                                <span class="ml-3">Maluk Gudha No. 46, Yogyakarta 83516</span>
-                            </div>
-                            <div class="flex items-center text-gray-600">
-                                <i class="fas fa-clock w-5 text-green-600"></i>
-                                <span class="ml-3">Buka setiap 09:00 - 23:00</span>
-                            </div>
-                            <div class="flex items-center text-gray-600">
-                                <i class="fas fa-star w-5 text-yellow-500"></i>
-                                <span class="ml-3">4.7 • 12 ulasan</span>
-                            </div>
-                        </div>
-                        <button class="w-full bg-purple-600 hover:bg-purple-700 text-white py-4 rounded-xl font-semibold transition-colors">
-                            <i class="fas fa-eye mr-2"></i>
-                            Lihat Detail
-                        </button>
-                    </div>
-                </div>
-
-                <!-- XXX XXI -->
-                <div class="cinema-card bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <div class="h-48 bg-gradient-to-br from-orange-500 to-red-600 relative">
-                        <div class="absolute inset-0 bg-black opacity-20"></div>
-                        <div class="absolute bottom-4 left-4 text-white">
-                            <h3 class="text-2xl font-bold">XXX XXI</h3>
-                            <p class="text-orange-100">Modern Cinema Complex</p>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="space-y-3 mb-6">
-                            <div class="flex items-center text-gray-600">
-                                <i class="fas fa-map-marker-alt w-5 text-blue-600"></i>
-                                <span class="ml-3">Jatuhkarso Handana No. 2025, Yogyakarta</span>
-                            </div>
-                            <div class="flex items-center text-gray-600">
-                                <i class="fas fa-clock w-5 text-green-600"></i>
-                                <span class="ml-3">Buka setiap 10:00 - 24:00</span>
-                            </div>
-                            <div class="flex items-center text-gray-600">
-                                <i class="fas fa-star w-5 text-yellow-500"></i>
-                                <span class="ml-3">4.6 • 34 ulasan</span>
-                            </div>
-                        </div>
-                        <button class="w-full bg-orange-600 hover:bg-orange-700 text-white py-4 rounded-xl font-semibold transition-colors">
-                            <i class="fas fa-eye mr-2"></i>
-                            Lihat Detail
-                        </button>
-                    </div>
-                </div>
-            </div> --}}
+           
 
             <!-- Pagination -->
             <div class="flex justify-center mt-12">
@@ -396,67 +280,107 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="kontak" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl font-bold text-gray-800 mb-4">Kontak Kami</h2>
-                    <p class="text-xl text-gray-600">Ada pertanyaan? Hubungi tim CINEMAP JOGJA</p>
+   <!-- Contact Section -->
+<section id="kontak" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Kontak Kami</h2>
+                <p class="text-xl text-gray-600">Ada pertanyaan? Hubungi tim CINEMAP JOGJA</p>
+            </div>
+
+            <!-- Grid dua kolom -->
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Kolom Formulir -->
+                <div class="bg-gray-50 rounded-2xl p-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Pesan</h3>
+
+                    {{-- Notifikasi sukses --}}
+                    @if(session('success'))
+                        <div class="p-4 mb-4 bg-green-100 text-green-800 rounded">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
+                    {{-- Tampilkan error validasi --}}
+                    @if ($errors->any())
+                        <div class="p-4 mb-4 bg-red-100 text-red-800 rounded">
+                            <ul class="list-disc pl-5">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    <form action="{{ route('contact.store') }}" method="POST" class="space-y-6">
+                        @csrf
+
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Nama</label>
+                            <input type="text" name="name" value="{{ old('name') }}"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                placeholder="Masukkan nama Anda">
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Email</label>
+                            <input type="email" name="email" value="{{ old('email') }}"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                placeholder="nama@email.com">
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Subjek</label>
+                            <input type="text" name="subject" value="{{ old('subject') }}"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                placeholder="Subjek pesan">
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Pesan</label>
+                            <textarea rows="4" name="message"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                placeholder="Tulis pesan Anda...">{{ old('message') }}</textarea>
+                        </div>
+
+                        <button type="submit"
+                            class="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-lg font-semibold transition-colors">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Kirim Pesan
+                        </button>
+                    </form>
                 </div>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-gray-50 rounded-2xl p-8">
-                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Pesan</h3>
-                        <form class="space-y-6">
-                            <div>
-                                <label class="block text-gray-700 font-semibold mb-2">Nama</label>
-                                <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Masukkan nama Anda">
-                            </div>
-                            <div>
-                                <label class="block text-gray-700 font-semibold mb-2">Email</label>
-                                <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="nama@email.com">
-                            </div>
-                            <div>
-                                <label class="block text-gray-700 font-semibold mb-2">Subjek</label>
-                                <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Subjek pesan">
-                            </div>
-                            <div>
-                                <label class="block text-gray-700 font-semibold mb-2">Pesan</label>
-                                <textarea rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Tulis pesan Anda..."></textarea>
-                            </div>
-                            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-lg font-semibold transition-colors">
-                                <i class="fas fa-paper-plane mr-2"></i>
-                                Kirim Pesan
-                            </button>
-                        </form>
+
+                <!-- Kolom Informasi Kontak -->
+                <div class="space-y-8">
+                    <div class="bg-blue-50 rounded-2xl p-6">
+                        <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-envelope text-white"></i>
+                        </div>
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Email</h4>
+                        <p class="text-gray-600">info@cinemapjogja.com</p>
                     </div>
-                    <div class="space-y-8">
-                        <div class="bg-blue-50 rounded-2xl p-6">
-                            <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
-                                <i class="fas fa-envelope text-white"></i>
-                            </div>
-                            <h4 class="text-lg font-semibold text-gray-800 mb-2">Email</h4>
-                            <p class="text-gray-600">info@cinemapjogja.com</p>
+                    <div class="bg-green-50 rounded-2xl p-6">
+                        <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-phone text-white"></i>
                         </div>
-                        <div class="bg-green-50 rounded-2xl p-6">
-                            <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mb-4">
-                                <i class="fas fa-phone text-white"></i>
-                            </div>
-                            <h4 class="text-lg font-semibold text-gray-800 mb-2">Telepon</h4>
-                            <p class="text-gray-600">+62 274 123 4567</p>
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Telepon</h4>
+                        <p class="text-gray-600">+62 274 123 4567</p>
+                    </div>
+                    <div class="bg-purple-50 rounded-2xl p-6">
+                        <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-map-marker-alt text-white"></i>
                         </div>
-                        <div class="bg-purple-50 rounded-2xl p-6">
-                            <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-4">
-                                <i class="fas fa-map-marker-alt text-white"></i>
-                            </div>
-                            <h4 class="text-lg font-semibold text-gray-800 mb-2">Alamat</h4>
-                            <p class="text-gray-600">Jl. Malioboro No. 123<br>Yogyakarta, Indonesia</p>
-                        </div>
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Alamat</h4>
+                        <p class="text-gray-600">Jl. Malioboro No. 123<br>Yogyakarta, Indonesia</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-12">
@@ -513,64 +437,160 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
-    <script>
-        // Smooth scrolling function
-        function scrollToMap() {
-            document.getElementById('peta').scrollIntoView({ 
-                behavior: 'smooth' 
+<script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+
+<script>
+    // Smooth scrolling ke elemen peta (ID-nya harus 'map' biar sama)
+    function scrollToMap() {
+        document.getElementById('map').scrollIntoView({
+            behavior: 'smooth'
+        });
+    }
+
+    // Fungsi cari bioskop terdekat (redirect ke route atau bisa langsung routing)
+    function findNearby() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                var lat = position.coords.latitude;
+                var lng = position.coords.longitude;
+
+                // ✅ Redirect ke route nearby
+                window.location.href = `/nearby?lat=${lat}&lng=${lng}`;
+            }, function () {
+                alert('Gagal mendeteksi lokasi Anda.');
             });
+        } else {
+            alert('Browser tidak mendukung Geolocation.');
         }
+    }
 
-        // Initialize map when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize Leaflet map
-            var map = L.map('map').setView([-7.797068, 110.370529], 13);
+    // Inisialisasi peta
+    document.addEventListener('DOMContentLoaded', function () {
+        var map = L.map('map').setView([-7.797068, 110.370529], 13);
 
-            // Add tile layer
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '© OpenStreetMap contributors',
-                maxZoom: 19
-            }).addTo(map);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors',
+            maxZoom: 19
+        }).addTo(map);
 
-            // Sample cinema data
-            var cinemas = [
-                {
-                    name: "Ambarrukmo XXI",
-                    address: "Jl. Majapahit 102, 106 Yogyakarta 55101",
-                    lat: -7.782889,
-                    lng: 110.367083,
-                    hours: "10:00 - 24:00",
-                    phone: "(0274) 1234567"
-                },
-                {
-                    name: "Cinema 21",
-                    address: "Jl. Urip dan soto Jethandung Induk",
-                    lat: -7.797068,
-                    lng: 110.370529,
-                    hours: "10:00 - 22:00",
-                    phone: "(0274) 1234568"
-                },
-                {
-                    name: "Empire XXI",
-                    address: "Maluk Gudha No. 46, Yogyakarta 83516",
-                    lat: -7.801389,
-                    lng: 110.364583,
-                    hours: "09:00 - 23:00",
-                    phone: "(0274) 1234569"
-                },
-                {
-                    name: "XXX XXI",
-                    address: "Jatuhkarso Handana No. 2025, Yogyakarta",
-                    lat: -7.785068,
-                    lng: 110.375529,
-                    hours: "10:00 - 24:00",
-                    phone: "(0274) 1234570"
+        var cinemas = [
+            {
+                name: "Ambarrukmo XXI",
+                address: "Jl. Majapahit 102, 106 Yogyakarta 55101",
+                lat: -7.782889,
+                lng: 110.367083,
+                hours: "10:00 - 24:00",
+                phone: "(0274) 1234567"
+            },
+            {
+                name: "Cinema 21",
+                address: "Jl. Urip dan soto Jethandung Induk",
+                lat: -7.797068,
+                lng: 110.370529,
+                hours: "10:00 - 22:00",
+                phone: "(0274) 1234568"
+            },
+            {
+                name: "Empire XXI",
+                address: "Maluk Gudha No. 46, Yogyakarta 83516",
+                lat: -7.801389,
+                lng: 110.364583,
+                hours: "09:00 - 23:00",
+                phone: "(0274) 1234569"
+            },
+            {
+                name: "XXX XXI",
+                address: "Jatuhkarso Handana No. 2025, Yogyakarta",
+                lat: -7.785068,
+                lng: 110.375529,
+                hours: "10:00 - 24:00",
+                phone: "(0274) 1234570"
+            }
+        ];
+
+        cinemas.forEach(function (cinema) {
+            var marker = L.marker([cinema.lat, cinema.lng]).addTo(map);
+            var popupContent = `
+                <div class="p-2">
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">${cinema.name}</h3>
+                    <p class="text-sm text-gray-600 mb-1">📍 ${cinema.address}</p>
+                    <p class="text-sm text-gray-600 mb-1">⏰ ${cinema.hours}</p>
+                    <p class="text-sm text-gray-600 mb-3">📞 ${cinema.phone}</p>
+                    <button onclick="getDirections(${cinema.lat}, ${cinema.lng})"
+                        class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition-colors">
+                        🧭 Arahkan ke Sini
+                    </button>
+                </div>
+            `;
+            marker.bindPopup(popupContent);
+        });
+
+        window.cinemas = cinemas; // simpan global untuk findNearby
+        window.mapInstance = map;
+        window.currentRouting = null;
+    });
+
+    // Fungsi arahkan user ke bioskop tertentu
+    function getDirections(lat, lng) {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                var userLat = position.coords.latitude;
+                var userLng = position.coords.longitude;
+
+                if (window.currentRouting) {
+                    window.mapInstance.removeControl(window.currentRouting);
                 }
-            ];
 
+                window.currentRouting = L.Routing.control({
+                    waypoints: [
+                        L.latLng(userLat, userLng),
+                        L.latLng(lat, lng)
+                    ],
+                    routeWhileDragging: false,
+                    createMarker: function () { return null; },
+                    lineOptions: {
+                        styles: [{ color: '#10b981', weight: 4, opacity: 0.8 }]
+                    }
+                }).addTo(window.mapInstance);
+
+                window.mapInstance.fitBounds([
+                    [userLat, userLng],
+                    [lat, lng]
+                ]);
+
+            }, function () {
+                alert('Tidak dapat mengakses lokasi Anda.');
+            });
+        } else {
+            alert('Geolocation tidak didukung oleh browser ini.');
+        }
+    }
+
+    // Fungsi cari bioskop terdekat & rute otomatis
+    function getNearestCinema(userLat, userLng) {
+        var nearest = null;
+        var minDist = Infinity;
+
+        window.cinemas.forEach(function (cinema) {
+            var dist = Math.sqrt(
+                Math.pow(cinema.lat - userLat, 2) +
+                Math.pow(cinema.lng - userLng, 2)
+            );
+            if (dist < minDist) {
+                minDist = dist;
+                nearest = cinema;
+            }
+        });
+
+        if (nearest) {
+            getDirections(nearest.lat, nearest.lng);
+        } else {
+            alert("Bioskop terdekat tidak ditemukan.");
+        }
+    }
+</script>
+<script>
             // Add markers for each cinema
             cinemas.forEach(function(cinema, index) {
                 var marker = L.marker([cinema.lat, cinema.lng]).addTo(map);
@@ -591,25 +611,14 @@
                 marker.bindPopup(popupContent);
             });
 
-            // // Add routing control (example route)
-            // var routingControl = L.Routing.control({
-            //     waypoints: [
-            //         L.latLng(-7.797068, 110.370529), // Start point
-            //         L.latLng(-7.782889, 110.367083)  // End point (Ambarrukmo XXI)
-            //     ],
-            //     routeWhileDragging: true,
-            //     createMarker: function() { return null; }, // Don't create default markers
-            //     lineOptions: {
-            //         styles: [{ color: '#3b82f6', weight: 4, opacity: 0.8 }]
-            //     }
-            // }).addTo(map);
+       
 
-            // Store routing control globally for direction function
+            {{-- // Store routing control globally for direction function --}}
             window.currentRouting = null;
             window.mapInstance = map;
         });
 
-        // Function to get directions to a specific cinema
+        {{-- Function to get directions to a specific cinema --}}
         function getDirections(lat, lng) {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function(position) {
